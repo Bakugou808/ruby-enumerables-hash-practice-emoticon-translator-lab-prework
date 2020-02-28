@@ -14,6 +14,7 @@ end
 
 def get_japanese_emoticon(yaml_file, emoticon)
   emoticon_hash = load_library(yaml_file)
+<<<<<<< HEAD
   
   emoticon_hash[:get_emoticon].map {|eng_emoti, jap_emoti|
     if emoticon == eng_emoti
@@ -22,6 +23,19 @@ def get_japanese_emoticon(yaml_file, emoticon)
   }
   
   "Sorry, that emoticon was not found"
+=======
+  apology_msg = "Apologies, that emoticon is not known."
+  
+  if emoticon_hash[:get_emoticon].has_key?(emoticon)
+    emoticon_hash[:get_emoticon].map {|eng_emoti, jap_emoti|
+      if emoticon == eng_emoti
+        return jap_emoti 
+      end 
+    }
+  else 
+    return apology_msg
+  end 
+>>>>>>> e327c5bb2a5711e84b35a1407f48ab9080fd1626
 end
 
 def get_english_meaning(yaml_file, emoticon)
